@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css2/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <title>Matrizes</title>
+</head>
+<body background="img/pngwing.com.png">
+        <header>
+          <div id="title">
+              <h1>CalcMath</h1>
+              <h5>Soluções de cálculos artiméticos </h5>
+          </div>
+      
+          <ul>
+              <a href="teo.pi.html"><li>Teorema de Pitágoras</li></a>
+              <a href="matriz.html"><li>Matrizes</li></a>
+              <a href="estatistica.html"><li>Estatístitca</li></a>
+              <a href="equa.html"><li>Equação do 2º grau</li></a>
+              <a href="areaspla.html"><li>Áreas Planas</li></a>
+          </ul>
+      </header>
+
+    <script>
+        function criarMatriz() {
+      var numLinhas = parseInt(document.getElementById("numLinhas").value);
+      var numColunas = parseInt(document.getElementById("numColunas").value);
+
+      var matriz = [];
+
+      for (var i = 0; i < numLinhas; i++) {
+        var linha = [];
+        for (var j = 0; j < numColunas; j++) {
+          var elemento = Math.floor(Math.random() * 100) + 1; // Preenche com números inteiros de 1 a 100
+          linha.push(elemento);
+        }
+        matriz.push(linha);
+      }
+
+      exibirMatriz(matriz);
+    }
+
+    function exibirMatriz(matriz) {
+      var resultado = document.getElementById("resultado");
+      resultado.innerHTML = "";
+
+      for (var i = 0; i < matriz.length; i++) {
+        var linha = matriz[i];
+        var linhaHTML = "<p>";
+        for (var j = 0; j < linha.length; j++) {
+          linhaHTML += linha[j] + " ";
+        }
+        linhaHTML += "</p>";
+        resultado.innerHTML += linhaHTML;
+      }
+    }
+    </script>
+
+<div class="h1">
+    <h1>Criação de Matriz</h1>
+    </div>
+    
+    <div class="matriz">
+    <label for="numLinhas">Número de Linhas:</label>
+    <input type="number" id="numLinhas">
+    <br>
+    
+    <label for="numColunas">Número de Colunas:</label>
+    <input type="number" id="numColunas">
+    <br>
+    <button id="botao" onclick="criarMatriz()">Criar Matriz</button>
+    <br>
+    <div id="resultado">
+</body>
+</html>

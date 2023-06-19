@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css2/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <title>Equação do 2º grau</title>
+</head>
+<body background="img/pngwing.com.png">
+        <header>
+          <div id="title">
+              <h1>CalcMath</h1>
+              <h5>Soluções de cálculos artiméticos </h5>
+          </div>
+      
+          <ul>
+              <a href="teo.pi.html"><li>Teorema de Pitágoras</li></a>
+              <a href="matriz.html"><li>Matrizes</li></a>
+              <a href="estatistica.html"><li>Estatístitca</li></a>
+              <a href="equa.html"><li>Equação do 2º grau</li></a>
+              <a href="areaspla.html"><li>Áreas Planas</li></a>
+          </ul>
+      </header>
+      <script>
+        function resolverEquacao() {
+          var a = parseFloat(document.getElementById("coeficienteA").value);
+          var b = parseFloat(document.getElementById("coeficienteB").value);
+          var c = parseFloat(document.getElementById("coeficienteC").value);
+    
+          var discriminante = b * b - 4 * a * c;
+          var solucao1, solucao2;
+    
+          if (discriminante > 0) {
+            solucao1 = (-b + Math.sqrt(discriminante)) / (2 * a);
+            solucao2 = (-b - Math.sqrt(discriminante)) / (2 * a);
+            exibirResultado("Duas raízes reais diferentes: x1 = " + solucao1.toFixed(2) + ", x2 = " + solucao2.toFixed(2));
+          } else if (discriminante === 0) {
+            solucao1 = -b / (2 * a);
+            exibirResultado("Uma raiz real: x = " + solucao1.toFixed(2));
+          } else {
+            exibirResultado("Não existem raízes reais.");
+          }
+        }
+    
+        function exibirResultado(resultado) {
+          var resultadoElement = document.getElementById("resultado");
+          resultadoElement.innerHTML = "";
+    
+          var resultadoLabel = document.createElement("p");
+          resultadoLabel.classList.add("result-label");
+          resultadoLabel.textContent = resultado;
+    
+          resultadoElement.appendChild(resultadoLabel);
+        }
+      </script>
+    </head>
+    
+    
+      <div class="container">
+        <h1>Calculadora de Equação do Segundo Grau</h1>
+        <label for="coeficienteA" class="input-label">Coeficiente A:</label>
+        <input type="number" id="coeficienteA">
+        <label for="coeficienteB" class="input-label">Coeficiente B:</label>
+        <input type="number" id="coeficienteB">
+        <label for="coeficienteC" class="input-label">Coeficiente C:</label>
+        <input type="number" id="coeficienteC">
+        <button onclick="resolverEquacao()">Calcular</button>
+        <div id="resultado"></div>
+      </div>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css2/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <title>Áreas Planas</title>
+</head>
+<body background="img/pngwing.com.png">
+        <header>
+          <div id="title">
+              <h1>CalcMath</h1>
+              <h5>Soluções de cálculos artiméticos </h5>
+          </div>
+      
+          <ul>
+              <a href="teo.pi.html"><li>Teorema de Pitágoras</li></a>
+              <a href="matriz.html"><li>Matrizes</li></a>
+              <a href="estatistica.html"><li>Estatístitca</li></a>
+              <a href="equa.html"><li>Equação do 2º grau</li></a>
+              <a href="areaspla.html"><li>Áreas Planas</li></a>
+          </ul>
+      </header>
+
+      <script>
+      
+        function calcularQuadrado() {
+          var lado = parseFloat(document.getElementById("ladoQuadrado").value);
+    
+          var area = lado * lado;
+          var perimetro = 4 * lado;
+    
+          exibirResultado("Quadrado", area, perimetro);
+        }
+    
+    
+        function calcularTriangulo() {
+          var base = parseFloat(document.getElementById("baseTriangulo").value);
+          var altura = parseFloat(document.getElementById("alturaTriangulo").value);
+    
+          var area = (base * altura) / 2;
+          var perimetro = base * 3;
+    
+          exibirResultado("Triângulo", area, perimetro);
+        }
+    
+        function exibirResultado(figura, area, perimetro) {
+          var resultadoElement = document.getElementById("resultado");
+          resultadoElement.innerHTML = "";
+    
+          var figuraLabel = document.createElement("p");
+          figuraLabel.classList.add("result-label");
+          figuraLabel.textContent = "Figura: " + figura;
+    
+          var areaLabel = document.createElement("p");
+          areaLabel.classList.add("result-label");
+          areaLabel.textContent = "Área: " + area.toFixed(2);
+    
+          var perimetroLabel = document.createElement("p");
+          perimetroLabel.classList.add("result-label");
+          perimetroLabel.textContent = "Perímetro: " + perimetro.toFixed(2);
+    
+          resultadoElement.appendChild(figuraLabel);
+          resultadoElement.appendChild(areaLabel);
+          resultadoElement.appendChild(perimetroLabel);
+        }
+    
+    
+        function calcularRetangulo() {
+          var base = parseFloat(document.getElementById("baseRetangulo").value);
+          var altura = parseFloat(document.getElementById("alturaRetangulo").value);
+    
+          var area = base * altura;
+          var perimetro = 2 * (base + altura);
+    
+          exibirResultado("Retângulo", area, perimetro);
+        }
+    
+    
+        function calcularLosango() {
+          var diagonalMaior = parseFloat(document.getElementById("diagonalMaiorLosango").value);
+          var diagonalMenor = parseFloat(document.getElementById("diagonalMenorLosango").value);
+    
+          var area = (diagonalMaior * diagonalMenor) / 2;
+          var perimetro = 4 * Math.sqrt((diagonalMaior * diagonalMaior + diagonalMenor * diagonalMenor) / 4);
+    
+          exibirResultado("Losango", area, perimetro);
+        }
+    
+    
+        function calcularTrapezio() {
+          var baseMaior = parseFloat(document.getElementById("baseMaiorTrapezio").value);
+          var baseMenor = parseFloat(document.getElementById("baseMenorTrapezio").value);
+          var altura = parseFloat(document.getElementById("alturaTrapezio").value);
+          var lado1 = parseFloat(document.getElementById("lado1Trapezio").value);
+          var lado2 = parseFloat(document.getElementById("lado2Trapezio").value);
+    
+          var area = ((baseMaior + baseMenor) * altura) / 2;
+          var perimetro = baseMaior + baseMenor + lado1 + lado2;
+    
+          exibirResultado("Trapézio", area, perimetro);
+        }
+    
+        function exibirResultado(figura, area, perimetro) {
+          var resultadoElement = document.getElementById("resultado");
+          resultadoElement.innerHTML = "";
+    
+          var figuraLabel = document.createElement("p");
+          figuraLabel.classList.add("result-label");
+          figuraLabel.textContent = "Figura: " + figura;
+    
+          var areaLabel = document.createElement("p");
+          areaLabel.classList.add("result-label");
+          areaLabel.textContent = "Área: " + area.toFixed(2);
+    
+          var perimetroLabel = document.createElement("p");
+          perimetroLabel.classList.add("result-label");
+          perimetroLabel.textContent = "Perímetro: " + perimetro.toFixed(2);
+    
+          resultadoElement.appendChild(figuraLabel);
+          resultadoElement.appendChild(areaLabel);
+          resultadoElement.appendChild(perimetroLabel);
+        }
+     
+      </script>
+    
+      <div class="container">
+        <h1>Calculadora de Figuras Planas</h1>
+    
+        <h4>Quadrado</h4>
+        <label for="ladoQuadrado" class="input-label">Lado:</label>
+        <input type="number" id="ladoQuadrado">
+        <button onclick="calcularQuadrado()">Calcular</button>
+<br>
+
+<br><h4>Retângulo</h4>
+    <label for="baseRetangulo" class="input-label">Base:</label>
+    <input type="number" id="baseRetangulo">
+    <label for="alturaRetangulo" class="input-label">Altura:</label>
+    <input type="number" id="alturaRetangulo">
+    <button onclick="calcularRetangulo()">Calcular</button>
+    <br>
+    
+    <br><h4>Triângulo</h4>
+    <label for="baseTriangulo" class="input-label">Base:</label>
+    <input type="number" id="baseTriangulo">
+    <label for="alturaTriangulo" class="input-label">Altura:</label>
+    <input type="number" id="alturaTriangulo">
+    <button onclick="calcularTriangulo()">Calcular</button>
+<br>
+
+   <br> <h4>Losango</h4>
+    <label for="diagonalMaiorLosango" class="input-label">Diagonal Maior:</label>
+    <input type="number" id="diagonalMaiorLosango">
+    <label for="diagonalMenorLosango" class="input-label">Diagonal Menor:</label>
+    <input type="number" id="diagonalMenorLosango">
+    <button onclick="calcularLosango()">Calcular</button>
+<br>
+
+   <br><h4>Trapézio</h4>
+    <label for="baseMaiorTrapezio" class="input-label">Base Maior:</label>
+    <input type="number" id="baseMaiorTrapezio">
+    <label for="baseMenorTrapezio" class="input-label">Base Menor:</label>
+    <input type="number" id="baseMenorTrapezio">
+    <label for="alturaTrapezio" class="input-label">Altura:</label>
+    <input type="number" id="alturaTrapezio">
+    <label for="lado1Trapezio" class="input-label">Lado 1:</label>
+    <input type="number" id="lado1Trapezio">
+    <label for="lado2Trapezio" class="input-label">Lado 2:</label>
+    <input type="number" id="lado2Trapezio">
+    <button onclick="calcularTrapezio()">Calcular</button>
+
+    <div id="resultado"></div>
+
+</body>
+</html>

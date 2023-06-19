@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css2/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <title>Estatística</title>
+</head>
+<body background="img/pngwing.com.png">
+        <header>
+          <div id="title">
+              <h1>CalcMath</h1>
+              <h5>Soluções de cálculos artiméticos </h5>
+          </div>
+      
+          <ul>
+              <a href="teo.pi.html"><li>Teorema de Pitágoras</li></a>
+              <a href="matriz.html"><li>Matrizes</li></a>
+              <a href="estatistica.html"><li>Estatístitca</li></a>
+              <a href="equa.html"><li>Equação do 2º grau</li></a>
+              <a href="areaspla.html"><li>Áreas Planas</li></a>
+          </ul>
+      </header>
+      <script>
+    function resolverProblema() {
+        var valores = document.getElementById("valores").value;
+        var valoresArray = valores.split(",").map(Number);
+  
+        var soma = valoresArray.reduce((total, valor) => total + valor, 0);
+        var media = soma / valoresArray.length;
+  
+        var diferencaQuadrados = valoresArray.map(valor => Math.pow(valor - media, 2));
+        var somaDiferencaQuadrados = diferencaQuadrados.reduce((total, valor) => total + valor, 0);
+        var variancia = somaDiferencaQuadrados / valoresArray.length;
+        var desvioPadrao = Math.sqrt(variancia);
+  
+        exibirResultado(media, variancia, desvioPadrao);
+      }
+  
+      function exibirResultado(media, variancia, desvioPadrao) {
+        var resultadoContainer = document.getElementById("resultado-container");
+        resultadoContainer.innerHTML = "";
+  
+        var mediaLabel = document.createElement("p");
+        mediaLabel.classList.add("result-label");
+        mediaLabel.textContent = "Média: " + media.toFixed(2);
+  
+        var varianciaLabel = document.createElement("p");
+        varianciaLabel.classList.add("result-label");
+        varianciaLabel.textContent = "Variância: " + variancia.toFixed(2);
+  
+        var desvioPadraoLabel = document.createElement("p");
+        desvioPadraoLabel.classList.add("result-label");
+        desvioPadraoLabel.textContent = "Desvio Padrão: " + desvioPadrao.toFixed(2);
+  
+        resultadoContainer.appendChild(mediaLabel);
+        resultadoContainer.appendChild(varianciaLabel);
+        resultadoContainer.appendChild(desvioPadraoLabel);
+      }
+    </script>
+
+    <div class="container">
+      <h1>Resolução de Problema de Estatística</h1>
+      <label for="valores" class="input-label">Digite os valores separados por vírgula:</label>
+      <input type="text" id="valores">
+      <button onclick="resolverProblema()">Resolver</button>
+      <div id="resultado-container" class="result-container"></div>
+
+
+
+
+</body>
+</html>
